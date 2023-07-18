@@ -1,6 +1,7 @@
 # A Terraform script to add some predefined records to EdgeDNS.
 #
 # using .edgerc but environment vars are also possible with v5.0.1 again.
+# make sure your Akamai API user has the correct EdgeDNS rights.
 # 
 # $ export AKAMAI_CLIENT_SECRET="your_secret"
 # $ export AKAMAI_HOST="your_host"
@@ -21,8 +22,7 @@ module "edgedns_records" {
     for_each = var.fqdn_set
     fqdn = each.value
 
-    # regex to strip first part of a fqdn
-    # a.b.c => b.c
-    # a.b.c.d => b.c.d
+    # regex to strip first part of a fqdn but it will return a list if using capture group ().
+    # a.b.c => b.c; a.b.c.d => b.c.d
     domain_name = regex("^[^.]+\\.(.+\\.\\w+)$", each.value)[0]
 }
