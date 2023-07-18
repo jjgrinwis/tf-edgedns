@@ -4,7 +4,7 @@ An example for a customer to add a couple of standard records to Akamai EdgeDNS
 
 ## Description
 
-Just add your fqdn's to fqdn_set[] var and off you go. For now just using '''<subdomain>.<domain>.<tld>''' format but you can change the validation code to allow other formats. 
+Just add your fqdn's to fqdn_set[] var and off you go. For now just using ```<subdomain>.<domain>.<tld>``` format but you can change the validation code to allow other formats. 
 
 ## Table of Contents
 
