@@ -1,10 +1,10 @@
 # Project Name
 
-An example for a customer to add a couple of standard records to Akamai EdgeDNS
+An example for a customer to add a couple of standard DNS records to Akamai EdgeDNS
 
 ## Description
 
-Just add your fqdn's to fqdn_set[] var and off you go. For now just using ```<subdomain>.<domain>.<tld>``` format but you can change the validation code to allow other formats. 
+Just add your fqdn's to fqdn_set[] var and off you go. It does some small validation on the fqdn but it's possible to add subdomains now.
 
 ## Table of Contents
 
@@ -15,6 +15,7 @@ Just add your fqdn's to fqdn_set[] var and off you go. For now just using ```<su
 ## Installation
 
 The DNS zone should be active in EdgeDNS and make sure you have the right EdgeDNS API credentials.
+https://techdocs.akamai.com/developer/docs/set-up-authentication-credentials
 
 ## Usage
 

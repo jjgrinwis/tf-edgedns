@@ -2,5 +2,6 @@
 fqdn_set = [ 
     "test1.great-demo.com",
     "test2.great-demo.com",
-    "test3.great-demo.com"
+    "test3.great-demo.com",
+    "test4.great-demo.com"
  ]

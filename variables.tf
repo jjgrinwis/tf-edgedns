@@ -5,11 +5,11 @@ variable "fqdn_set" {
   description = "The list of fqdn's for which we would like to add these default records"
   type        = set(string)
   validation {
-    # chatGPT generated regex but he made a mess of the validation part
-    # using can() to validate regex and every entry resuls should be alltrue()
+    # using can() to validate if the regex is true so it doesn't trow an error
+    # the regex will verify if subdomain, domain and tld ar valid.
     condition = alltrue([
-        for fqdn in var.fqdn_set : can(regex("^[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+){2}$", fqdn))
+        for fqdn in var.fqdn_set : can(regex("^[[:alnum:]-]+(?:\\.[[:alnum:]-]+)+\\.[[:alpha:]]{2,}$", fqdn))
     ])
-    error_message = "Invalid entry in the fqdn set, should be <subdomain>.<domain>.<fqdn>"
+    error_message = "Invalid entry in the fqdn set, should be <subdomain>.<domain>{1,}.<fqdn>"
   }
 }
