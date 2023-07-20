@@ -5,7 +5,7 @@ variable "fqdn_set" {
   description = "The list of fqdn's for which we would like to add these default records"
   type        = set(string)
   validation {
-    # using can() to validate if the regex is true so it doesn't trow an error
+    # using can() to validate if the regex is true so it doesn't throw an error
     # the regex will verify if subdomain, domain and tld ar valid.
     condition = alltrue([
         for fqdn in var.fqdn_set : can(regex("^[[:alnum:]-]+(?:\\.[[:alnum:]-]+)+\\.[[:alpha:]]{2,}$", fqdn))
